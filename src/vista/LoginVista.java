@@ -37,7 +37,6 @@ public class LoginVista extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblTitulo.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
-        lblTitulo.setForeground(new java.awt.Color(0, 0, 0));
         lblTitulo.setText("Sistema Obstétrico - Iniciar Sesión");
         jPanel1.add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, -1, -1));
 
@@ -45,7 +44,6 @@ public class LoginVista extends javax.swing.JFrame {
         jPanel1.add(lblIntentos, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 330, 30));
 
         lblUsuario.setFont(new java.awt.Font("Segoe Print", 0, 16)); // NOI18N
-        lblUsuario.setForeground(new java.awt.Color(0, 0, 0));
         lblUsuario.setText("Usuario: ");
         jPanel1.add(lblUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, -1, -1));
 
@@ -53,7 +51,6 @@ public class LoginVista extends javax.swing.JFrame {
         jPanel1.add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 110, 210, 40));
 
         lblContrasena.setFont(new java.awt.Font("Segoe Print", 0, 16)); // NOI18N
-        lblContrasena.setForeground(new java.awt.Color(0, 0, 0));
         lblContrasena.setText("Contraseña: ");
         jPanel1.add(lblContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, -1, -1));
 
@@ -62,7 +59,6 @@ public class LoginVista extends javax.swing.JFrame {
 
         btnLogin.setBackground(new java.awt.Color(0, 204, 0));
         btnLogin.setFont(new java.awt.Font("Segoe Print", 1, 16)); // NOI18N
-        btnLogin.setForeground(new java.awt.Color(0, 0, 0));
         btnLogin.setText("Iniciar Sesión");
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -73,7 +69,6 @@ public class LoginVista extends javax.swing.JFrame {
 
         btnRecuperar.setBackground(new java.awt.Color(0, 204, 204));
         btnRecuperar.setFont(new java.awt.Font("Segoe Print", 0, 10)); // NOI18N
-        btnRecuperar.setForeground(new java.awt.Color(0, 0, 0));
         btnRecuperar.setText("¿Olvidaste tu contraseña?");
         btnRecuperar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -84,7 +79,7 @@ public class LoginVista extends javax.swing.JFrame {
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 40, 410, 420));
 
-        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/login.jpg"))); // NOI18N
+        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Fondiu.png"))); // NOI18N
         getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();

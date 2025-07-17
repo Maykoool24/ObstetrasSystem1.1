@@ -1,0 +1,87 @@
+package controlador;
+
+import modelo.MetaAnual;
+import modelo.MetaObstetra;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.HashMap;
+import java.time.Year; // Para obtener el año actual
+
+// Importa el controlador de citas para obtener nombres de programas
+import controlador.ControladorCita;
+import controlador.ControladorUsuario; // Para obtener nombres de obstetras
+
+public class ControladorMeta {
+
+    private ControladorCita controladorCita = new ControladorCita();
+    private ControladorUsuario controladorUsuario = new ControladorUsuario();
+
+    // --- Métodos de ejemplo para Metas Anuales ---
+    public List<MetaAnual> obtenerTodasMetasAnuales() {
+        List<MetaAnual> metas = new ArrayList<>();
+        // Datos de ejemplo (simulando una base de datos)
+        metas.add(new MetaAnual(1, 1, "Papanicolaou", 2024, 1200, 100));
+        metas.add(new MetaAnual(2, 2, "IVA", 2024, 600, 50));
+        metas.add(new MetaAnual(3, 1, "Papanicolaou", 2025, 1320, 110));
+        metas.add(new MetaAnual(4, 3, "VPH", 2024, 300, 25));
+        // Aquí iría la lógica para consultar la base de datos
+        return metas;
+    }
+
+    // --- Métodos de ejemplo para Metas por Obstetra ---
+    public List<MetaObstetra> obtenerMetasObstetraFiltradas(Integer anio, Integer idPrograma) {
+        List<MetaObstetra> metas = new ArrayList<>();
+        // Datos de ejemplo (simulando una base de datos)
+        // En un caso real, estos datos vendrían de la DB y se filtrarían por anio e idPrograma
+        List<MetaObstetra> todosLosDatos = new ArrayList<>();
+        todosLosDatos.add(new MetaObstetra(101, "Dr. Juan Perez", 1, "Papanicolaou", 2024, "Enero", 100, 300));
+        todosLosDatos.add(new MetaObstetra(101, "Dr. Juan Perez", 1, "Papanicolaou", 2024, "Febrero", 95, 300));
+        todosLosDatos.add(new MetaObstetra(101, "Dr. Juan Perez", 2, "IVA", 2024, "Enero", 50, 150));
+        todosLosDatos.add(new MetaObstetra(102, "Dra. Ana Gomez", 1, "Papanicolaou", 2024, "Enero", 110, 330));
+        todosLosDatos.add(new MetaObstetra(102, "Dra. Ana Gomez", 1, "Papanicolaou", 2025, "Enero", 120, 360));
+        todosLosDatos.add(new MetaObstetra(101, "Dr. Juan Perez", 1, "Papanicolaou", 2025, "Enero", 105, 315));
+
+
+        for (MetaObstetra meta : todosLosDatos) {
+            boolean cumpleAnio = (anio == null || meta.getAnio() == anio);
+            boolean cumplePrograma = (idPrograma == null || meta.getIdPrograma() == idPrograma);
+
+            if (cumpleAnio && cumplePrograma) {
+                metas.add(meta);
+            }
+        }
+        return metas;
+    }
+
+    // --- Métodos auxiliares para JComboBoxes ---
+    public List<Integer> obtenerAniosConMetas() {
+        List<Integer> anios = new ArrayList<>();
+        // En un caso real, esto consultaría los años únicos de las metas en la DB
+        // Por ahora, devolvemos algunos años de ejemplo
+        anios.add(Year.now().getValue()); // Año actual
+        anios.add(Year.now().getValue() + 1); // Año siguiente
+        anios.add(Year.now().getValue() - 1); // Año anterior
+        anios.sort(null); // Ordenar los años
+        return anios;
+    }
+
+    // Métodos CRUD de ejemplo (sin implementación real de DB por ahora)
+    public boolean guardarMetaAnual(MetaAnual meta) {
+        System.out.println("Guardando meta anual: " + meta.getNombrePrograma() + " " + meta.getAnio());
+        // Aquí iría la lógica de INSERT en la DB
+        return true;
+    }
+
+    public boolean modificarMetaAnual(MetaAnual meta) {
+        System.out.println("Modificando meta anual ID: " + meta.getId());
+        // Aquí iría la lógica de UPDATE en la DB
+        return true;
+    }
+
+    public boolean eliminarMetaAnual(int idMeta) {
+        System.out.println("Eliminando meta anual ID: " + idMeta);
+        // Aquí iría la lógica de DELETE en la DB
+        return true;
+    }
+}
